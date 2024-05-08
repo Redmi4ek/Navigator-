@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 14px; 
+  /* overflow: hidden; */
+}
+
+.container {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.header {
+  background-color: #000000;
+  color: #fff;
+  padding: 1.875em 0; /* 30px */
+  position: relative;
+}
+
+.header_container a {
+  margin-left: 10em; /* 160px */
+}
+
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav {
+  margin-right: 5em; /* 80px */
+}
+
+.logo {
+  font-size: 1.5em; /* 24px */
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  margin-right: 5px; 
+}
+
+.nav {
+  float: right;
+  margin-right: 10px;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  display: inline-block;
+  /* margin-left: 1.25em;  */
+  margin-left: 5px; 
+  margin-right: 5px;
+  padding: 8px 15px;
+  font-size: 0.9em; 
+  width: auto;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-link:hover {
+  color: #ddd;
+}
+
+/* Main Styles */
+
+.main {
+  padding-bottom: 2em; /* 50px */
+  display: flex;
+  flex-direction: column;
+}
+
+.current_balance {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 0em;
+  margin-top: 5px;
+}
+
+.current_balance_text {
+  border: 1px rgb(81, 81, 81) solid;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.current_balance_text h1 {
+  font-size: 1.5em; 
+  margin-bottom: 0.625em; 
+}
+
+.current_balance_amount {
+  color: rgb(50, 236, 46);
+  font-size: 1.25em;
+}
+
+.balance {
+  font-size: 1.25em;
+}
+
+.current_balance_text p {
+  font-size: 1.125em; /* 18px */
+  margin-bottom: 1.25em; /* 20px */
+}
+
+.transactions {
+  max-width: 43.75em;
+  width: 60vw;
+  height: 33em;
+  border: 0.0625em solid #ddd;
+  padding: 1.25em;
+  border-radius: 0.3125em;
+  overflow-y: scroll;
+  /* margin-top: 30px;  */
+  margin-right: 100px;
+}
+
+.transactions h2 {
+  font-size: 1.5em; /* 24px */
+  margin-bottom: 1.25em; /* 20px */
+}
+
+.transaction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25em; 
+  padding-bottom: 0.625em; 
+  padding-left: 0.625em; 
+  padding-right: 0.625em; 
+  border-bottom: 0.0625em solid #eee; 
+  background-color: #d9d9d9;
+  border-radius: 0.625em;
+  flex-direction: column;
+}
+
+.transaction-date p {
+  font-size: 1.25em; /* 20px */
+  font-weight: 900;
+}
+
+.transaction-info p {
+  font-size: 1.25em; /* 20px */
+  margin-bottom: 0.3125em; /* 5px */
+  font-weight: 900;
+}
+
+.transaction-name {
+  text-transform: uppercase;
+}
+
+.footer {
+  background-color: #000000;
+  color: #fff;
+  text-align: center;
+  padding: 0.625em 0;
+  position: fixed; 
+  bottom: 0; 
+  left: 0; 
+  width: 100%; 
+  z-index: 100;
+}
+
+.container_footer {
+  text-align: center;
+}
+
+.windows {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+
+.window {
+  background-color: #fff;
+  border: 0.125em solid #ccc;
+  border-radius: 0.3125em; 
+  /* width: 25em;  */
+  /* margin: 3.125em auto; */
+  padding: 1.25em;
+  box-shadow: 0px 0px 0.625em rgba(0, 0, 0, 0.2); 
+  /* width: 100%;  */
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.window-header {
+  text-align: center;
+  font-size: 1.2em; 
+  margin-bottom: 1.25em;
+  font-weight: bold;
+}
+
+.window-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.send-amount,
+.receive-amount {
+  margin-bottom: 0.625em; /* 10px */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.send-amount label,
+.receive-amount label {
+  flex: 1;
+  font-size: 1.25em;
+}
+
+.send-amount input,
+.receive-amount input {
+  flex: 2;
+  padding: 5px;
+  border: 0.0625em solid #ccc; 
+  border-radius: 0.1875em; 
+}
+
+.send-amount input::placeholder,
+.receive-amount input::placeholder{
+  font-size: 1.25em;
+}
+
+.continue_btn {
+  background-color: rgb(255, 213, 3);
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 0.625em 2.5em; 
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em; 
+  cursor: pointer;
+  border-radius: 0.3125em;
+  font-weight: bold;
+}
+
+.continue_btn.success {
+background-color: rgb(123, 255, 83);
+color: rgb(255, 255, 255);
+}
+
+.continue_btn:hover {
+background-color: #000000;
+color: rgb(255, 255, 255);
+}
+
+.nav-item {
+font-size: 1.25em; 
+margin-left: 1.875em;
+padding: 0.625em 1.875em; 
+border: 0.125em solid rgb(255, 213, 3); 
+background-color: transparent;
+color: rgb(255, 213, 3);
+width: 8.75em;
+}
+
+.nav-item.active,
+.nav-item:hover {
+background-color: rgb(255, 213, 3);
+color: black;
+border: 0.125em solid rgb(255, 213, 3);
+font-weight: bold;
+}
+
+#current_balance {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 10px;
+  justify-content: center;
+  max-width: 1200px; 
+  margin: 0 auto; 
+}
+
+#account_number{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+
+  .logo {
+    font-size: 1em;
+  }
+
+  .nav-item {
+    padding: 8px 10px; 
+    font-size: 0.8em;
+  }
+  .nav {
+    margin-right: 5px; 
+  }
+
+  .header_container a {
+    margin-left: 3px; 
+  }
+
+  .header {
+    padding: 10px 0;     
+  }
+
+  .footer {
+    height: 30px;
+    padding: 10px;
+  }
+  .windows {
+    display: flex;
+    flex-direction: column;
+  }
+  .window {
+    width:40vw;
+    margin-bottom: 10px;
+    /* padding: 20px; */
+    /* box-sizing: border-box; */
+    margin-top: 30px;
+    /* margin-left: -40px; */
+    font-size: 12px;
+  }
+
+  .window-body input[type="text"],
+  .window-body input[type="number"] {
+    font-size: 7px; 
+    padding: 8px;
+    margin-bottom: 10px; 
+    width: 100px;
+  }
+
+  .send-amount label {
+    font-size: 10px;
+  }
+
+  .window-header p{
+    font-size: 13px;
+  }
+  
+  .transactions h2{
+    font-size: 10px;
+  }
+  .current_balance_text h1 {
+    font-size: 1em;
+  }
+
+  .transaction-info p {
+    font-size: 10px;
+  }
+
+  .transaction-name p {
+    font-size: 1px;
+  }
+
+  .recent_transactions_text {
+    font-size: 13px;
+  }
+
+  .transactions {
+    height: 21vh;
+    width: 70vw;
+    margin-right: 0px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+}

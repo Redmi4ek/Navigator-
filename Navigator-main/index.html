@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlmaU</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+    <script src="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header_container">
+            <a href="#" class="logo">AlmaU</a>
+        </div>
+    </header>
+    <main class="main">
+        <div class="current_balance" id="current_balance"> 
+        </div>
+        <div class="container">
+            <div class="transactions">
+                <h2 class="recent_transactions_text">Recent Transactions</h2>
+            </div>
+            <div class="windows">
+                <div class="first_two_windows">
+                    <div class="window"> 
+                        <div class="window-header">
+                            <p>Transfer Money</p>
+                        </div>
+                        <div class="window-body" >
+                            <div class="send-amount">
+                                <label for="send_from">Send from</label>
+                                <input type="number" id="send_from" placeholder="id">
+                            </div>
+                            <div class="send-amount">
+                                <label for="send_to">Send to</label>
+                                <input type="number" id="send_to" placeholder="id">
+                            </div>
+                            <div class="send-amount">
+                                <label for="send_amount">Amount</label>
+                                <input type="number" id="send_amount" placeholder="0">
+                            </div>
+                            <button method="post" class="continue_btn" onclick="transferMoney()" id="transfer_money_btn">Continue ></button>
+                        </div>
+                    </div>
+                    <div class="window">
+                        <div class="window-header">
+                            <p>Money Deposit</p>
+                        </div>
+                        <div class="window-body">
+                            <div class="send-amount">
+                                <label for="get_amount">Get Money</label>
+                                <input type="number" id="get_amount" placeholder="0">
+                            </div>
+                            <div class="send-amount">
+                                <label for="account">For account</label>
+                                <input type="number" id="account" placeholder="id">
+                            </div>
+                            <button class="continue_btn" onclick="depositMoney()" id="deposit_money_btn">Continue ></button>
+                        </div>
+                    </div>
+                </div> 
+                
+            </div> 
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container_footer">
+            <p>&copy; 2024 AlmaU. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>
