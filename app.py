@@ -9,11 +9,12 @@ from datetime import datetime
 import uuid
 from fastapi.staticfiles import StaticFiles
 
-DATABASE_URL = "postgresql://postgres:1234@localhost:5432/postgres"
+DATABASE_URL = "postgresql://postgres:mrkanat2004@localhost:5432/postgres"
 
 engine = create_engine(DATABASE_URL, client_encoding='utf-8')
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = sqlalchemy.orm.declarative_base()  # Исправление согласно предупреждению
+
 
 class Message(Base):
     __tablename__ = 'messages'
@@ -25,8 +26,9 @@ class Message(Base):
     stream_name = Column(String, nullable=False)
     type = Column(String, nullable=False)
     data = Column(JSON)
-    metadata_json = Column(JSON, name='metadata')
+    metadata_json = Column('metadata', JSON)
     id = Column(UUID(as_uuid=True), default=uuid.uuid4, unique=True)
+
 
 Base.metadata.create_all(bind=engine)
 
@@ -37,6 +39,7 @@ origins = [
     "http://127.0.0.1:8000",
     "http://localhost:8000",
 ]
+
 
 app.add_middleware(
     CORSMiddleware,
@@ -49,9 +52,14 @@ app.add_middleware(
 # Монтируем директорию static для статических файлов
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
+
 class RegisterRequest(BaseModel):
     first_name: str
     last_name: str
+    telegram_id: str
+    school: str
+    phone_number: str
+
 
 def get_db():
     db = SessionLocal()
@@ -59,6 +67,7 @@ def get_db():
         yield db
     finally:
         db.close()
+
 
 @app.post("/register")
 def register_teacher(request: RegisterRequest, db: Session = Depends(get_db)):
@@ -71,8 +80,13 @@ def register_teacher(request: RegisterRequest, db: Session = Depends(get_db)):
         time=datetime.utcnow(),
         stream_name="teacher-" + str(uuid_teacher),
         type="RegisterTeacher",
-        data={"first_name": request.first_name, "last_name": request.last_name},
-        metadata={"user_id": "manager1"},
+        data={"first_name": request.first_name,
+              "last_name": request.last_name,
+              "telegram_id": request.telegram_id,
+              "school": request.school,
+              "phone_number": request.phone_number,
+              },
+        metadata_json={"user_id": "manager1"},
         id=uuid_teacher
     )
 
@@ -81,6 +95,7 @@ def register_teacher(request: RegisterRequest, db: Session = Depends(get_db)):
     db.refresh(message)
     
     return {"message": "Teacher registered successfully", "teacher_id": str(message.id)}
+
 
 if __name__ == "__main__":
     import uvicorn
