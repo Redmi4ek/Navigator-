@@ -16,6 +16,19 @@ h1 {
     padding: 20px;
    
 }
+
+.load-teachers-button {
+    background-color: #4CAF50; 
+    color: white ;
+    padding: 10px 10px ;
+    text-align: center ;
+    text-decoration: none ;
+    display: inline-block ;
+    font-size: 12px ;
+    margin: 4px 2px ;
+    cursor: pointer ;
+}
+
 .sidebar a {
     display: block;
     margin-bottom: 10px;
@@ -64,3 +77,4 @@ table, th, td {
 table tr:hover {
     background-color: #f1f1f1; /* Цвет при наведении на строку */
 }
+

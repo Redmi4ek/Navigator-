@@ -60,6 +60,7 @@ input[type="text"]:focus {
     outline: none;
 }
 
+
 input[type="submit"] {
     background-color: #465FF1; 
     border: none;

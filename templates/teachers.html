@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/teachers.css">
+    <link rel="stylesheet" href="/static/teachers.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
-    <script src="teachers.js" defer></script>
+    <script src="/static/teachers.js" defer></script>
 
     <title>Teachers</title>
 </head>
@@ -13,11 +13,12 @@
     <div class="container">
         <div class="sidebar">
             <h1>Teachers</h1>
-            <a href="teachers.html">Teachers</a>
-            <a href="regist.html">Register</a>
+            <a href="/teachers">Teachers</a>
+            <a href="/regist">Register</a>
         </div>
         <div class="content">
             <h2>Teachers</h2>
+            <button id="load-teachers" class="load-teachers-button">Load Teachers</button>
             <div class="table">
                 <table id="teachers-table">
                     <tr>
