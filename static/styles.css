@@ -1,0 +1,120 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+.container {
+    display: flex;
+}
+.sidebar {
+    width: 15%;
+    height: 100vh;
+    background-color: #f8f9fa;
+    font-size: larger;
+}
+h1 {
+    padding: 20px;
+   
+}
+.content {
+    margin-right: 10%;
+    width: 85%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.sidebar a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+}
+input[type="text"]:focus {
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+input[type="number"] {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+}
+
+input[type="number"]:focus {
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+
+input[type="submit"] {
+    background-color: #465FF1; 
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 10px;
+  
+    
+}
+
+input[type="submit"]:hover {
+    background-color: #344ac5;
+}
+
+.continue_btn {
+    background-color: #4CAF50; /* Зеленый */
+    border: none;
+    color: white; /* Белый текст */
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px; /* Закругленные углы */
+    transition-duration: 0.4s; /* Плавный переход */
+}
+
+.continue_btn:hover {
+    background-color: white; /* Белый фон */
+    color: black; /* Черный текст */
+    border: 2px solid #4CAF50; /* Зеленая рамка */
+}

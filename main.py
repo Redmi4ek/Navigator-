@@ -11,7 +11,7 @@ import uuid
 from fastapi.responses import HTMLResponse
 
 # Конфигурация базы данных
-DATABASE_URL = "postgresql://postgres:1234@localhost:5432/postgres"
+DATABASE_URL = "postgresql://postgres:mrkanat2004@localhost:5432/postgres"
 
 # Создание движка базы данных и сессии
 engine = create_engine(DATABASE_URL, client_encoding='utf-8')
@@ -46,6 +46,8 @@ class Teacher(Base):
 
     def to_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
+
 
 # Создание таблиц в базе данных
 Base.metadata.create_all(bind=engine)
@@ -127,3 +129,25 @@ def regist(request: Request):
 @app.get("/teachers", response_class=HTMLResponse)
 def teachers(request: Request):
     return templates.TemplateResponse("teachers.html", {"request": request})
+
+#Обработчик страницы статей
+@app.get("/regist_teacher", response_class=HTMLResponse)
+def teachers(request: Request):
+    return templates.TemplateResponse("reg_for_teacher.html", {"request": request})
+
+@app.get("/regist_teacher2", response_class=HTMLResponse)
+def teachers(request: Request):
+    return templates.TemplateResponse("reg_for_teacher2.html", {"request": request})
+
+
+@app.get("/article_form", response_class=HTMLResponse)
+def teachers(request: Request):
+    return templates.TemplateResponse("article_form.html", {"request": request})
+
+@app.get("/all_articles", response_class=HTMLResponse)
+def teachers(request: Request):
+    return templates.TemplateResponse("all_articles.html", {"request": request})
+
+@app.get("/my_articles_table", response_class=HTMLResponse)
+def teachers(request: Request):
+    return templates.TemplateResponse("my_articles_table.html", {"request": request})

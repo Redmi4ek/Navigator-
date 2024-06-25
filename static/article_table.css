@@ -1,0 +1,91 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+.container {
+    display: flex;
+}
+.sidebar {
+    width: 15%;
+    height: 100vh;
+    background-color: #f8f9fa;
+    font-size: larger;
+}
+h1 {
+    padding: 20px;
+   
+}
+
+.load-teachers-button {
+    background-color: #4CAF50; 
+    color: white ;
+    padding: 10px 10px ;
+    text-align: center ;
+    text-decoration: none ;
+    display: inline-block ;
+    font-size: 12px ;
+    margin: 4px 2px ;
+    cursor: pointer ;
+}
+
+.sidebar a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+}
+.content {
+    margin-right: 10%;
+    width: 85%;
+    padding: 20px;
+    height: 30vh;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Добавляем border-radius */
+    overflow: hidden;
+    box-shadow: black 0px 0px 2px;
+}
+
+th, td {
+    padding: 20px;
+    text-align: left;
+    
+}
+tr {
+    border-bottom: 1px solid black;
+}
+th {
+    background-color: #465FF1; /* Цвет фона заголовка */
+    color: white; /* Белый цвет текста */
+}
+td {
+    background-color: #ffffff; /* Белый цвет для ячеек */
+    color: black; /* Черный цвет текста */
+    
+}
+table, th, td {
+    border: none;
+    
+}
+
+table tr:hover {
+    background-color: #f1f1f1; /* Цвет при наведении на строку */
+}
+
+.fas.fa-trash-alt {
+    font-size: 1.6em;
+    color: #f44141;
+    cursor: pointer;
+}
+
+.fas.fa-edit {
+    font-size: 1.6em;
+    color: #5e5e5e;
+    cursor: pointer;
+}

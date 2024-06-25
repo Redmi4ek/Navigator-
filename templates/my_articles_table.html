@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/article_table.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Article</title>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>Articles</h1>
+            <a href="/all_articles">All Articles</a>
+            <a href="/my_articles_table">My Articles</a>
+            <a href="/article_form">Post</a>
+        </div>
+        <div class="content">
+            <h2>My Articles</h2>
+            
+            <button id="load-articles" class="load-teachers-button">Load my Articles</button>
+            <div class="table">
+                <table id="articles-table">
+                    <tr>
+                        <th>Year</th>
+                        <th>Title</th>
+                        <th>Journal</th>
+                        <th>Link</th>
+                        <th>Delete</th>
+                        <th>Edit</th>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/my_articles_table.js" defer></script>
+</body>
+</html>
