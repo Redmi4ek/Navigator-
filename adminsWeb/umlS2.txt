@@ -1,0 +1,31 @@
+@startuml
+actor "Учитель" as User
+actor "Админ" as Admin
+
+package "Вебсайт Учителей" {
+    usecase "Регистрация" as UC1
+    usecase "Авторизация" as UC2
+    usecase "Главная страница" as UC3
+    usecase "Форма Статьи" as UC4
+    usecase "Список Статей" as UC5
+}
+
+package "Админ панель" {
+   usecase "Добавить Учителя" as UCA1
+   usecase "Просмотр списка учителей" as UCA2
+}
+
+Admin ---> UCA1
+Admin ---> UCA2
+
+User ---> UC1 : Заходит в сайт
+User ---> UC2
+UC2 --> UC3
+UC1 --> UC3 : Проходит в главную страницу
+UC3 --> UC4 : Написать статью
+UC3 --> UC5 : Посмотреть статьи
+
+note right of UC1 : Учитель пишет свой email; registration_password;\n далее создает себе пароль в вебсайт
+note left of UC4 : Новая команда и событие\nна созданную статью,\nсохранение данных в таблице \n                 achievements
+note right of UC5 : Список Статей
+@enduml
