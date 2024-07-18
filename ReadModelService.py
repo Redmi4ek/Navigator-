@@ -14,8 +14,8 @@ engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine)
 Base.metadata.create_all(bind=engine)
 
-def get_last_processed_position(session: Session):
-    last_message = session.query(Message).filter(Message.type == "TeacherRegistered").order_by(Message.global_position.desc()).first()
+def get_last_processed_position(session: Session, filter: str):
+    last_message = session.query(Message).filter(Message.type == filter).order_by(Message.global_position.desc()).first()
     if last_message and "lastProcessed" in last_message.data:
         return last_message.data["lastProcessed"]
     return 0
@@ -24,7 +24,7 @@ def update_teachers():
     while True:
         session = SessionLocal()
         try:
-            last_processed_position = get_last_processed_position(session)
+            last_processed_position = get_last_processed_position(session, filter="TeacherRegistered")
             new_messages = session.query(Message).filter(
                 Message.type == "TeacherRegistered",
                 Message.global_position > last_processed_position
