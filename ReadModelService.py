@@ -43,7 +43,8 @@ def update_teachers():
                     new_teacher = Teacher(
                         first_name=data['first_name'],
                         last_name=data['last_name'],
-                        # telegram_id=data['telegram_id'],
+                        email = data['email'],
+                        registration_password = data['registration_password'],
                         school=data['school'],
                         phone_number=data['phone_number']
                     )

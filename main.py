@@ -22,7 +22,7 @@ class Message(Base):
     
     global_position = Column(Integer, primary_key=True, autoincrement=True)
     position = Column(Integer, nullable=False)
-    time = Column(DateTime, default=datetime.utcnow)
+    time = Column(DateTime, default=datetime.utcnow())
     stream_name = Column(String, nullable=False)
     type = Column(String, nullable=False)
     data = Column(JSON)
@@ -34,13 +34,13 @@ class Teacher(Base):
     __table_args__ = {'schema': 'message_store'}
     
     id = Column(Integer, primary_key=True, autoincrement=True)
-    uuid = Column(UUID, unique=True)
-    email = Column(VARCHAR, nullable=False)
-    registration_password = Column(VARCHAR, nullable=False)
-    first_name = Column(VARCHAR, nullable=False)
-    last_name = Column(VARCHAR, nullable=False)
-    school = Column(VARCHAR, nullable=False)
-    phone_number = Column(VARCHAR, nullable=False)
+    uuid = Column(UUID(as_uuid=True), default=uuid.uuid4, unique=True)
+    email = Column(String, nullable=False)
+    registration_password = Column(String, nullable=False)
+    first_name = Column(String, nullable=False)
+    last_name = Column(String, nullable=False)
+    school = Column(String, nullable=False)
+    phone_number = Column(String, nullable=False)
 
     def to_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
@@ -51,12 +51,12 @@ class User(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     uuid = Column(UUID, unique=True)
-    email = Column(VARCHAR, nullable=False)
-    password = Column(VARCHAR, nullable=False)
-    first_name = Column(VARCHAR, nullable=False)
-    last_name = Column(VARCHAR, nullable=False)
-    school = Column(VARCHAR, nullable=False)
-    phone_number = Column(VARCHAR, nullable=False)
+    email = Column(String, nullable=False)
+    password = Column(String, nullable=False)
+    first_name = Column(String, nullable=False)
+    last_name = Column(String, nullable=False)
+    school = Column(String, nullable=False)
+    phone_number = Column(String, nullable=False)
     photo = Column(String)
 
     def to_dict(self):
@@ -67,10 +67,10 @@ class Achievement(Base):
     __table_args__ = {'schema': 'message_store'}
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    achievement_type = Column(VARCHAR, nullable=False)
+    achievement_type = Column(String, nullable=False)
     year = Column(Integer, nullable=False)
-    title = Column(VARCHAR, nullable=False)
-    journal = Column(VARCHAR, nullable=False)
+    title = Column(String, nullable=False)
+    journal = Column(String, nullable=False)
     url = Column(String, nullable=False)
 
 
@@ -134,11 +134,12 @@ def register_teacher(request: TeacherRequest, db: Session = Depends(get_db)):
         time=datetime.utcnow(),
         stream_name="teacher-" + str(uuid_teacher),
         type="RegisterTeacher",
-        data={"first_name": request.first_name,
+        data={"first_name": request.first_name, 
               "last_name": request.last_name,
               "email": request.email,
               "school": request.school,
-              "phone_number": request.phone_number},
+              "phone_number": request.phone_number,
+              "registration_password": request.registration_password},
         metadata_json={"user_id": "manager1"},
         id=uuid_teacher
     )
